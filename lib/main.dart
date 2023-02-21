@@ -1,7 +1,6 @@
-import 'package:bitcoin_flutter/calculator_main.dart';
+import 'package:bitcoin_flutter/screens/calculator_main.dart';
 import 'package:flutter/material.dart';
 
-import 'TaskScreen.dart';
 
 void main() => runApp(MyApp());
 

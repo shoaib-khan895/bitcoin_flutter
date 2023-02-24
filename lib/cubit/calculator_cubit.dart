@@ -1,91 +1,60 @@
 import 'package:bloc/bloc.dart';
+import '../constants/calculator_model.dart';
 
-
-
-class CalculatorCubit extends Cubit<int> {
+class CalculatorCubit extends Cubit<CalculatorModel> {
   int firstNum = 0;
   int secondNum = 0;
-  String history = '';
-  String textToDisplay = '';
-  String res = '';
   String operation = '';
+  String res = '';
 
-  CalculatorCubit() : super(0);
-  //
-  // void calculateResult(value) {
-  //   if (value == "=") {
-  //     emit(calculate(value));
-  //   }
-  //   calculate(value);
-  // }
-
-  // void add(value) {
-  //   calculate(value);
-  //   emit(state + int.parse(textToDisplay));
-  // }
-  //
-  // void sub(value) {
-  //   calculate(value);
-  //   firstNum - secondNum;
-  // }
-  //
-  // int multiply() {
-  //   return firstNum * secondNum;
-  // }
-  //
-  // double divided() {
-  //   return firstNum / secondNum;
-  // }
-
+  CalculatorCubit() : super(CalculatorModel(history: '', textToDisplay: ''));
   void calculate(btnVal) {
     if (btnVal == "AC") {
-      textToDisplay = '';
       firstNum = 0;
       secondNum = 0;
       res = "";
-      history = "";
-      emit(state-state);
+      emit(CalculatorModel(history: ""));
     } else if (btnVal == "+" ||
         btnVal == "-" ||
         btnVal == "x" ||
         btnVal == "/") {
-      firstNum = int.parse(textToDisplay);
+      firstNum = int.tryParse(state.textToDisplay ?? '0')!;
       res = '';
       operation = btnVal;
     } else if (btnVal == "=") {
-      secondNum = int.parse(textToDisplay);
+      secondNum = int.tryParse(state.textToDisplay ?? '0')!;
       if (operation == "+") {
-        res = (firstNum + secondNum).toString();
-        emit(state+int.parse(res));
-        history =
-            firstNum.toString() + operation.toString() + secondNum.toString();
+        res = ((firstNum) + (secondNum)).toString();
+        emit(CalculatorModel(
+            textToDisplay: state.textToDisplay! + res.toString(),
+            history: ("$firstNum$operation$secondNum")));
       }
       if (operation == "-") {
-        res = (firstNum - secondNum).toString();
-        emit(state+int.parse(res));
-        history =
-            firstNum.toString() + operation.toString() + secondNum.toString();
+        res = (firstNum - (secondNum)).toString();
+        emit(CalculatorModel(
+            textToDisplay: state.textToDisplay! + res.toString(),
+            history: ("$firstNum$operation$secondNum")));
       }
       if (operation == "x") {
-        res = (firstNum * secondNum).toString();
-        emit(state+int.parse(res));
-
-        history =
-            firstNum.toString() + operation.toString() + secondNum.toString();
+        res = (firstNum * (secondNum)).toString();
+        emit(CalculatorModel(
+            textToDisplay: state.textToDisplay! + res.toString(),
+            history: ("$firstNum$operation$secondNum")));
       }
       if (operation == "/") {
-        res = (firstNum / secondNum).toString();
-        emit(state+int.parse(res));
-
-        history =
-            firstNum.toString() + operation.toString() + secondNum.toString();
+        res = (firstNum / (secondNum)).toString();
+        emit(CalculatorModel(
+            textToDisplay: state.textToDisplay! + res.toString(),
+            history: ("$firstNum$operation$secondNum")));
       }
     } else {
-      res = int.parse(textToDisplay + btnVal).toString();
-      emit(state);
+      res = int.parse(state.textToDisplay! + btnVal).toString();
+      //emit(state);
+      //emit(Values(history:state.history ));
     }
-     textToDisplay=res;
-    emit(int.parse(res));
+    state.textToDisplay = res;
+    emit(CalculatorModel(
+        textToDisplay: state.textToDisplay, history: state.history));
   }
 }
 

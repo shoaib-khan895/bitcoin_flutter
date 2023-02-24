@@ -3,6 +3,7 @@
 import 'package:bitcoin_flutter/cubit/calculator_cubit.dart';
 import 'package:flutter/material.dart';
 import '../components/reuseable_buttons.dart';
+import '../constants/calculator_model.dart';
 import '../constants/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -76,26 +77,26 @@ class _CalculatorPageState extends State<CalculatorPage> {
           Spacer(
             flex: 1,
           ),
-          BlocBuilder<CalculatorCubit, int>(
+          BlocBuilder<CalculatorCubit, CalculatorModel>(
             builder: (context, state) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    state.toString(),
+                    state.history.toString(),
                     style: TextStyle(
                         color: Colors.orange,
                         fontWeight: FontWeight.w800,
                         fontSize: 45),
                   ),
-                  // Text(
-                  //   state.toString(),
-                  //   style: TextStyle(
-                  //       color: Colors.white,
-                  //       fontWeight: FontWeight.w800,
-                  //       fontSize: 30),
-                  // ),
+                  Text(
+                    state.textToDisplay.toString(),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 30),
+                  ),
                   SizedBox(
                     height: 10.0,
                   )
@@ -103,7 +104,6 @@ class _CalculatorPageState extends State<CalculatorPage> {
               );
             },
           ),
-
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -134,5 +134,3 @@ class _CalculatorPageState extends State<CalculatorPage> {
     );
   }
 }
-
-//bloc cubit in this code!!

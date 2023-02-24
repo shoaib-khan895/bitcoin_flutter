@@ -15,57 +15,6 @@ class CalculatorPage extends StatefulWidget {
 }
 
 class _CalculatorPageState extends State<CalculatorPage> {
-  // int firstNum = 0;
-  // int secondNum = 0;
-  // String history = '';
-  // String textToDisplay = '';
-  // String res = '';
-  // String operation = '';
-  //
-  // void btnOnClick(String btnVal) {
-  //   print(btnVal);
-  //   if (btnVal == "AC") {
-  //     textToDisplay = '';
-  //     firstNum = 0;
-  //     secondNum = 0;
-  //     res = "";
-  //     history = "";
-  //   } else if (btnVal == "+" ||
-  //       btnVal == "-" ||
-  //       btnVal == "x" ||
-  //       btnVal == "/") {
-  //     firstNum = int.parse(textToDisplay);
-  //     res = '';
-  //     operation = btnVal;
-  //   } else if (btnVal == "=") {
-  //     secondNum = int.parse(textToDisplay);
-  //     if (operation == "+") {
-  //       res = (firstNum + secondNum).toString();
-  //       history =
-  //           firstNum.toString() + operation.toString() + secondNum.toString();
-  //     }
-  //     if (operation == "-") {
-  //       res = (firstNum - secondNum).toString();
-  //       history =
-  //           firstNum.toString() + operation.toString() + secondNum.toString();
-  //     }
-  //     if (operation == "x") {
-  //       res = (firstNum * secondNum).toString();
-  //       history =
-  //           firstNum.toString() + operation.toString() + secondNum.toString();
-  //     }
-  //     if (operation == "/") {
-  //       res = (firstNum / secondNum).toString();
-  //       history =
-  //           firstNum.toString() + operation.toString() + secondNum.toString();
-  //     }
-  //   } else {
-  //     res = int.parse(textToDisplay + btnVal).toString();
-  //   }
-  //   setState(() {
-  //     textToDisplay = res;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {

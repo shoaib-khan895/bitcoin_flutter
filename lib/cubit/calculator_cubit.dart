@@ -49,63 +49,9 @@ class CalculatorCubit extends Cubit<CalculatorModel> {
       }
     } else {
       res = int.parse(state.textToDisplay! + btnVal).toString();
-      //emit(state);
-      //emit(Values(history:state.history ));
     }
     state.textToDisplay = res;
     emit(CalculatorModel(
         textToDisplay: state.textToDisplay, history: state.history));
   }
 }
-
-// int firstNum = 0;
-// int secondNum = 0;
-// String history = '';
-// String textToDisplay = '';
-// String res = '';
-// String operation = '';
-//
-// int btnOnClick(String btnVal) {
-//   print(btnVal);
-//   if (btnVal == "AC") {
-//     textToDisplay = '';
-//     firstNum = 0;
-//     secondNum = 0;
-//     res = "";
-//     history = "";
-//   } else if (btnVal == "+" ||
-//       btnVal == "-" ||
-//       btnVal == "x" ||
-//       btnVal == "/") {
-//     firstNum = int.parse(textToDisplay);
-//     res = '';
-//     operation = btnVal;
-//   } else if (btnVal == "=") {
-//     secondNum = int.parse(textToDisplay);
-//     if (operation == "+") {
-//       res = (firstNum + secondNum).toString();
-//       history =
-//           firstNum.toString() + operation.toString() + secondNum.toString();
-//     }
-//     if (operation == "-") {
-//       res = (firstNum - secondNum).toString();
-//       history =
-//           firstNum.toString() + operation.toString() + secondNum.toString();
-//     }
-//     if (operation == "x") {
-//       res = (firstNum * secondNum).toString();
-//       history =
-//           firstNum.toString() + operation.toString() + secondNum.toString();
-//     }
-//     if (operation == "/") {
-//       res = (firstNum / secondNum).toString();
-//       history =
-//           firstNum.toString() + operation.toString() + secondNum.toString();
-//     }
-//   } else {
-//     res = int.parse(textToDisplay + btnVal).toString();
-//   }
-//   // setState(() {
-//    return int.parse(res);
-//   // });
-// }
